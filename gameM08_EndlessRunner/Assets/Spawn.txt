@@ -1,0 +1,27 @@
+public class Spawn : MonoBehaviour
+{
+    public GameObject[] muroPatrones;
+    private float tiempodeaparicion;
+    public float tiempo;
+    public float time2;
+    public float minTime = 0.65f;
+
+    private void Update(){
+        if (tiempodeaparicion <= 0)
+        {
+            int rand = Random.Range(0, muroPatrones.Length);
+            Instantiate(muroPatrones[rand], transform.position, Quaternion.identity);
+            time2 = tiempodeaparición;
+          
+            if (tiempo > minTime)
+            {
+               tiempodaparicion -= time2;
+            }
+        }
+        else
+        {
+            tiempodeaparicion -= Time.deltaTime;
+
+        }
+    }
+}
