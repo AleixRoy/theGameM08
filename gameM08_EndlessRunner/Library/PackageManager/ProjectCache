@@ -20,7 +20,7 @@ m_EmbeddedPackageManifests:
 m_LocalPackages:
   m_LocalFileStatus: []
 m_ProjectPath: E:/DAM/M08 Desenvolupamen App mobil/gameM08/gameM08/theGameM08/gameM08_EndlessRunner/Packages
-m_EditorVersion: 2021.3.24f1 (cf10dcf7010d)
+m_EditorVersion: 2021.3.23f1 (213b516bf396)
 m_ResolvedPackages:
 - packageId: com.unity.2d.sprite@1.0.0
   testable: 0
@@ -200,6 +200,7 @@ m_ResolvedPackages:
     - 4.4.1
     - 4.4.2
     compatible:
+    - 4.4.1
     - 4.4.2
     verified: 4.4.2
   dependencies:
@@ -234,7 +235,7 @@ m_ResolvedPackages:
     revision: 532b2db792ae728eedcc825080876b4e2c5f8544
     path: 
   unityLifecycle:
-    version: 4.4.2
+    version: 4.4.1
     nextVersion: 
 - packageId: com.unity.analytics@3.6.12
   testable: 0
@@ -526,6 +527,7 @@ m_ResolvedPackages:
     - 3.0.20
     - 3.0.21
     compatible:
+    - 3.0.18
     - 3.0.20
     - 3.0.21
     verified: 3.0.21
@@ -555,7 +557,7 @@ m_ResolvedPackages:
     revision: b0b5d281f6e3a1b7e7c73939f5ed03dc0668bcc1
     path: 
   unityLifecycle:
-    version: 3.0.20
+    version: 3.0.18
     nextVersion: 
 - packageId: com.unity.ide.visualstudio@2.0.18
   testable: 0
@@ -601,6 +603,7 @@ m_ResolvedPackages:
     - 2.0.17
     - 2.0.18
     compatible:
+    - 2.0.17
     - 2.0.18
     verified: 2.0.18
   dependencies:
@@ -635,7 +638,7 @@ m_ResolvedPackages:
     revision: 9d3c07127cbe1916b8abbfd18f71fb8d9df8008c
     path: 
   unityLifecycle:
-    version: 2.0.18
+    version: 2.0.17
     nextVersion: 
 - packageId: com.unity.ide.vscode@1.2.5
   testable: 0
@@ -794,8 +797,9 @@ m_ResolvedPackages:
     - 4.7.0
     - 4.8.0
     compatible:
+    - 4.7.0
     - 4.8.0
-    verified: 4.8.0
+    verified: 4.7.0
   dependencies:
   - name: com.unity.ugui
     version: 1.0.0
@@ -851,7 +855,7 @@ m_ResolvedPackages:
     revision: 764a3bd5b373bbdb7bbd3a87a2b260204d2b1365
     path: 
   unityLifecycle:
-    version: 4.8.0
+    version: 4.7.0
     nextVersion: 
 - packageId: com.unity.test-framework@1.1.31
   testable: 0
