@@ -6,14 +6,18 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    private Vector2 PosicionDestino;
+    private Vector2 targetPos;
+    
+    
     public float Yincrement;
-    public float AlturaMaxima;
-    public float AlturaMinima;
+    public float maxHeight;
+    public float minHeight;
     public int health = 3;
     public float speed;
-    public GameObject explos, UI, POP, gameover;
+    public GameObject explos;
     public Text vida;
+    public GameObject POP;
+    public GameObject gameover;
 
     private void Update()
     {
@@ -23,63 +27,22 @@ public class Player : MonoBehaviour
             gameover.SetActive(true);
             Destroy(gameObject);
         }
-        transform.position = Vector2.MoveTowards(transform.position, PosicionDestino, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
-        //if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < maxHeight)
-        //{
-        //    Instantiate(POP, transform.position, Quaternion.identity);
-        //    Instantiate(explos, transform.position, Quaternion.identity);
-        //    targetPos = new Vector2(transform.position.x, transform.position.y + Yincrement);
-
-        //}
-        //else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > minHeight)
-        //{
-        //    Instantiate(POP, transform.position, Quaternion.identity);
-        //    Instantiate(explos, transform.position, Quaternion.identity);
-        //    targetPos = new Vector2(transform.position.x, transform.position.y - Yincrement);
-
-        //}
-
-        var collider_up = UI.transform.GetChild(0).GetComponent<Collider2D>();
-        var collider_dw = UI.transform.GetChild(1).GetComponent<Collider2D>();
-
-        var toque  = Input.touchCount > 0;
-        
-        if(toque)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < maxHeight)
         {
-            var mover = Input.GetTouch(0);
-            var punto = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-
-            var arriba = collider_up.OverlapPoint(punto);
-            var abajo  = collider_dw.OverlapPoint(punto);
-
-            if (arriba && PosicionDestino.y < AlturaMaxima)
-            {
-                switch (mover.phase)
-                {
-                    case TouchPhase.Began:
-                        Instantiate(POP, transform.position, Quaternion.identity);
-                        Instantiate(explos, transform.position, Quaternion.identity);
-                        PosicionDestino = new Vector2(transform.position.x, transform.position.y + Yincrement);
-                        break;
-
-                    default: break;
-                }
-            }
-
-            if (abajo && PosicionDestino.y > AlturaMinima)
-            {
-                switch (mover.phase)
-                {
-                    case TouchPhase.Began:
-                        Instantiate(POP, transform.position, Quaternion.identity);
-                        Instantiate(explos, transform.position, Quaternion.identity);
-                        PosicionDestino = new Vector2(transform.position.x, transform.position.y - Yincrement);
-                        break;
-
-                    default: break;
-                }
-            }
+            Instantiate(POP, transform.position, Quaternion.identity);
+            Instantiate(explos, transform.position, Quaternion.identity);
+            targetPos = new Vector2(transform.position.x, transform.position.y + Yincrement);
+          
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > minHeight)
+        {
+            Instantiate(POP, transform.position, Quaternion.identity); 
+            Instantiate(explos, transform.position, Quaternion.identity);
+            targetPos = new Vector2(transform.position.x, transform.position.y - Yincrement);
+            
         }
     }
 }
+
