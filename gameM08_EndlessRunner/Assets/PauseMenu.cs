@@ -6,21 +6,31 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool pausedgame = false;
-    public GameObject pmu;
+    public GameObject pmu, IconoPause;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        var collider_pause = IconoPause.transform.GetChild(2).GetComponent<BoxCollider2D>();
+        var toque = Input.touchCount > 0;
+
+        if (toque)
         {
-            if (pausedgame)
+            var detectar = Input.GetTouch(0);
+            var punto  = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+            var pausar = collider_pause.OverlapPoint(punto);
+
+            if(pausar)
             {
-                Resume();
-            } 
-            else {
-                Pause();
+                switch (detectar.phase)
+                {
+                    case TouchPhase.Began:
+                        Pause();
+                        break;
+
+                    default: break;
+                }
             }
         }
-        
     }
 
    public void Resume() {
